@@ -1,4 +1,6 @@
-const NodeMediaServer = require('node-media-server');
+const NodeMediaServer = require("node-media-server");
+
+const HTTP_PORT = process.env.PORT || 8000;
 
 const config = {
   rtmp: {
@@ -9,11 +11,10 @@ const config = {
     ping_timeout: 60
   },
   http: {
-    port: 8000,
-    allow_origin: '*'
+    port: HTTP_PORT,
+    allow_origin: "*"
   }
 };
 
-
-var nms = new NodeMediaServer(config)
+var nms = new NodeMediaServer(config);
 nms.run();
